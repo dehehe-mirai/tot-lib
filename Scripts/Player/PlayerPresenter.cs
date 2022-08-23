@@ -1,7 +1,40 @@
+using Scripts.Player;
+using UniRx;
+
 public class PlayerPresenter
 {
-    public void SetTheater(TheaterPresenter theaterPresenter)
+    private Player _player;
+    private IPlayerInfoView _infoView;
+
+    public Player Player
     {
-        throw new NotImplementedException();
+        get => _player;
+        set
+        {
+            this._player = value;
+            
+            value.Score.Subscribe(i =>
+            {
+                _infoView.PlayerScoreChanged(i);
+            });
+        }
+    }
+
+    public PlayerPresenter(IPlayerInfoView infoView)
+    {
+        _infoView = infoView;
+        
+    }
+
+    public void InitializeWithPlayer(Player player)
+    {
+        Player = player;
+        
+        _infoView.SetPlayer(Player);
+
+        Player.SongCardHand.ObserveAdd().Subscribe(onNext: item =>
+        {
+            _infoView.SongCardAddedInHand(item.Value);
+        });
     }
 }

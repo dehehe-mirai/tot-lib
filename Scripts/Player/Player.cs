@@ -4,6 +4,7 @@ namespace Scripts.Player;
 
 public class Player
 {
+    public ReactiveCollection<SongCard> SongCardHand = new ReactiveCollection<SongCard>();
     public ReactiveProperty<int> Score = new ReactiveProperty<int>();
 
     public global::Theater Theater;
