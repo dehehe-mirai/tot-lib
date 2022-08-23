@@ -1,5 +1,6 @@
-﻿using Scripts.Theater;
-using UniRx;
+﻿using UniRx;
+
+namespace Scripts.Theater;
 
 public class Theater
 {
@@ -28,7 +29,7 @@ public class Theater
                 if (!songCard.Unit.Contains(idol.Name)) continue;
                 
                 if (Math.Abs(idol.X - item.Value.X) == 1
-                && Math.Abs(idol.Y - item.Value.Y) == 1) continue;
+                    && Math.Abs(idol.Y - item.Value.Y) == 1) continue;
             
                 if (Math.Abs(idol.X - item.Value.X) == 1 
                     || Math.Abs(idol.X - item.Value.Y) == 1)
@@ -37,7 +38,7 @@ public class Theater
                     
                     if (!interactedIdol.Contains(idol.Name)) interactedIdol.Add(idol.Name);
                 }     
-                }
+            }
             
         }
         

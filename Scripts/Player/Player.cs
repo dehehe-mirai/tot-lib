@@ -8,5 +8,5 @@ public class Player
     public ReactiveCollection<SongCard> SongCardHand = new ReactiveCollection<SongCard>();
     public ReactiveProperty<int> Score = new ReactiveProperty<int>();
 
-    public global::Theater? Theater;
+    public global::Scripts.Theater.Theater? Theater;
 }

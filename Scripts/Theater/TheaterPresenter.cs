@@ -5,9 +5,9 @@ namespace Scripts.Theater;
 public class TheaterPresenter
 {
     private readonly ITheaterView _view;
-    private global::Theater? _theater;
+    private global::Scripts.Theater.Theater? _theater;
 
-    public global::Theater? Theater
+    public global::Scripts.Theater.Theater? Theater
     {
         get => _theater;
         set

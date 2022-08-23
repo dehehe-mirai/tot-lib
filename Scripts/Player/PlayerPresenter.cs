@@ -1,5 +1,6 @@
-using Scripts.Player;
 using UniRx;
+
+namespace Scripts.Player;
 
 public class PlayerPresenter
 {
