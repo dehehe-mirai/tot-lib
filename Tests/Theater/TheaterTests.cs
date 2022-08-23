@@ -51,7 +51,7 @@ public class TheaterTests
         _theaterPresenter.Theater = theater;
         Assert.NotNull(_theaterPresenter.Theater);
         
-        theater.AddSongCard(SongCard.Of("Absolute Run", "Strawberry Pop Moon",new List<string>{"mirai", "shizuka", "tsubasa"}));
+        theater.AddSongCard(SongCard.Of("Absolute Run", "Strawberry Pop Moon",new List<string?> {"mirai", "shizuka", "tsubasa"}));
         
         theater.AddIdolTile(IdolTile.Of("mirai").SetXY(0, 0));
         theater.AddIdolTile(IdolTile.Of("shizuka").SetXY(1, 0));
@@ -59,7 +59,7 @@ public class TheaterTests
         
         Thread.Sleep(1);
         
-        _theaterView.Verify(x=>x.GotScore(new List<string>{"shizuka", "mirai"}));
+        _theaterView.Verify(x=>x.GotScore(new List<string?> {"shizuka", "mirai"}));
     }
     [Test]
     public void Theater_GotScore_ThreeIdols()
@@ -68,7 +68,7 @@ public class TheaterTests
         _theaterPresenter.Theater = theater;
         Assert.NotNull(_theaterPresenter.Theater);
         
-        theater.AddSongCard(SongCard.Of("Absolute Run", "Strawberry Pop Moon",new List<string>{"mirai", "shizuka", "tsubasa"}));
+        theater.AddSongCard(SongCard.Of("Absolute Run", "Strawberry Pop Moon",new List<string?> {"mirai", "shizuka", "tsubasa"}));
         
         theater.AddIdolTile(IdolTile.Of("mirai").SetXY(0, 0));
         theater.AddIdolTile(IdolTile.Of("shizuka").SetXY(1, 0));
@@ -76,12 +76,12 @@ public class TheaterTests
         
         Thread.Sleep(1);
         
-        _theaterView.Verify(x=>x.GotScore(new List<string>{"shizuka", "mirai"}));
+        _theaterView.Verify(x=>x.GotScore(new List<string?> {"shizuka", "mirai"}));
         
         theater.AddIdolTile(IdolTile.Of("tsubasa").SetXY(-1, 0));
         theater.AddIdolTile(IdolTile.Of("tsubasa").SetXY(-1, 1));
         Thread.Sleep(1);
         
-        _theaterView.Verify(x=>x.GotScore(new List<string>{"tsubasa", "mirai", "shizuka"}));
+        _theaterView.Verify(x=>x.GotScore(new List<string?> {"tsubasa", "mirai", "shizuka"}));
     }
 }

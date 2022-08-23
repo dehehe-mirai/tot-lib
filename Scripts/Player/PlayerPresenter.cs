@@ -3,20 +3,17 @@ using UniRx;
 
 public class PlayerPresenter
 {
-    private Player _player;
-    private IPlayerInfoView _infoView;
+    private Player? _player;
+    private readonly IPlayerInfoView _infoView;
 
-    public Player Player
+    public Player? Player
     {
         get => _player;
         set
         {
             this._player = value;
-            
-            value.Score.Subscribe(i =>
-            {
-                _infoView.PlayerScoreChanged(i);
-            });
+
+            value?.Score.Subscribe(i => { _infoView.PlayerScoreChanged(i); });
         }
     }
 
@@ -26,15 +23,12 @@ public class PlayerPresenter
         
     }
 
-    public void InitializeWithPlayer(Player player)
+    public void InitializeWithPlayer(Player? player)
     {
         Player = player;
         
         _infoView.SetPlayer(Player);
 
-        Player.SongCardHand.ObserveAdd().Subscribe(onNext: item =>
-        {
-            _infoView.SongCardAddedInHand(item.Value);
-        });
+        Player?.SongCardHand.ObserveAdd().Subscribe(onNext: item => { _infoView.SongCardAddedInHand(item.Value); });
     }
 }

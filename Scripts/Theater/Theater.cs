@@ -1,10 +1,11 @@
-﻿using UniRx;
+﻿using Scripts.Theater;
+using UniRx;
 
 public class Theater
 {
     public readonly ReactiveCollection<IdolTile> IdolTiles = new ReactiveCollection<IdolTile>();
     public readonly ReactiveCollection<SongCard> SongCards = new ReactiveCollection<SongCard>();
-    public readonly ReactiveCollection<List<string>> InteractedUnitIdol = new ReactiveCollection<List<string>>(); 
+    public readonly ReactiveCollection<List<string?>> InteractedUnitIdol = new ReactiveCollection<List<string?>>(); 
     
     public Theater()
     {
@@ -13,7 +14,7 @@ public class Theater
 
     private void OnAddIdol(CollectionAddEvent<IdolTile> item)
     {
-        var interactedIdol = new List<string>();
+        var interactedIdol = new List<string?>();
         var idols = IdolTiles.ToList();
         var songs = SongCards.ToList();
         

@@ -1,4 +1,5 @@
 ﻿using Moq;
+using Scripts.Theater;
 
 namespace Tests.Player;
 using Scripts.Player;
@@ -48,7 +49,7 @@ public class PlayerTests
         
         playerPresenter.InitializeWithPlayer(player);
         var songCard = SongCard.Of("Absolute Run", "Strawberry Pop Moon",
-            new List<string> { "mirai", "shizuka", "tsubasa" });
+            new List<string?> { "mirai", "shizuka", "tsubasa" });
 
         player.SongCardHand.Add(songCard);
         

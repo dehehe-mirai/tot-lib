@@ -1,6 +1,7 @@
 using Moq;
 using Scripts;
 using Scripts.Office;
+using Scripts.Theater;
 
 namespace Tests;
 
@@ -26,10 +27,10 @@ public class OfficeTests
         
         _allSongTileInfo = new List<SongCard>();
         
-        _allSongTileInfo.Add(SongCard.Of("Absolute Run", "Strawberry Pop Moon",new List<string>{"mirai", "shizuka", "tsubasa"}));
-        _allSongTileInfo.Add(SongCard.Of("Episode Tiara", "Star Elements",new List<string>{"mirai", "kotoha", "kana"}));
-        _allSongTileInfo.Add(SongCard.Of("Give Me Metaphor", "Star Elements",new List<string>{"mirai", "kotoha", "kana"}));
-        _allSongTileInfo.Add(SongCard.Of("Harmonics", "D/Zeal",new List<string>{"shizuka", "julia"}));
+        _allSongTileInfo.Add(SongCard.Of("Absolute Run", "Strawberry Pop Moon",new List<string?> {"mirai", "shizuka", "tsubasa"}));
+        _allSongTileInfo.Add(SongCard.Of("Episode Tiara", "Star Elements",new List<string?> {"mirai", "kotoha", "kana"}));
+        _allSongTileInfo.Add(SongCard.Of("Give Me Metaphor", "Star Elements",new List<string?> {"mirai", "kotoha", "kana"}));
+        _allSongTileInfo.Add(SongCard.Of("Harmonics", "D/Zeal",new List<string?> {"shizuka", "julia"}));
 
     }
 

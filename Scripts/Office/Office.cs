@@ -1,25 +1,23 @@
-﻿
-using System.Collections;
-using System.Collections.ObjectModel;
+﻿using Scripts.Theater;
 using UniRx;
 
 namespace Scripts.Office;
 
 public class Office
 {
-    public ReactiveCollection<IdolTile> OpenedIdolTiles = new ReactiveCollection<IdolTile>();
-    public ReactiveCollection<SongCard> OpenedSongCards = new ReactiveCollection<SongCard>();
+    public readonly ReactiveCollection<IdolTile> OpenedIdolTiles = new ReactiveCollection<IdolTile>();
+    public readonly ReactiveCollection<SongCard> OpenedSongCards = new ReactiveCollection<SongCard>();
 
-    public ReactiveCollection<IdolTile> IdolDeck = new ReactiveCollection<IdolTile>();
-    public ReactiveCollection<SongCard> SongDeck = new ReactiveCollection<SongCard>();
+    public readonly ReactiveCollection<IdolTile> IdolDeck = new ReactiveCollection<IdolTile>();
+    public readonly ReactiveCollection<SongCard> SongDeck = new ReactiveCollection<SongCard>();
 
-    public ReactiveCollection<IdolTile> RemovedIdolTiles = new ReactiveCollection<IdolTile>();
+    public readonly ReactiveCollection<IdolTile> RemovedIdolTiles = new ReactiveCollection<IdolTile>();
     public ReactiveCollection<SongCard> RemovedSongCards = new ReactiveCollection<SongCard>();
 
-    public void Shuffle<T>(List<T> list)
+    public static void Shuffle<T>(List<T> list)
     {
         var rnd = new Random();
-        var randomized = list.OrderBy(item => rnd.Next());
+        var randomized = list.OrderBy(_ => rnd.Next());
         
         list.Clear();
         list.AddRange(randomized);

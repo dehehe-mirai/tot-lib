@@ -1,3 +1,5 @@
+namespace Scripts.Theater;
+
 public class IdolTile
 {
     public enum Type
@@ -6,7 +8,7 @@ public class IdolTile
         Token
     };
 
-    public string Name;
+    public string? Name;
     public int X;
     public int Y;
     public string Id = "";
@@ -15,12 +17,12 @@ public class IdolTile
     {
     }
 
-    private IdolTile(string name)
+    private IdolTile(string? name)
     {
         this.Name = name;
     }
 
-    public static IdolTile Of(string name)
+    public static IdolTile Of(string? name)
     {
         return new IdolTile(name);
     }
