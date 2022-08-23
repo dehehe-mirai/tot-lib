@@ -17,6 +17,14 @@ public class TheaterPresenter
             {
                 _view.AddIdol(item.Value);
             });
+            _theater.SongCards.ObserveAdd().Subscribe(item=>
+            {
+                _view.AddSongCard(item.Value);
+            });
+            _theater.InteractedUnitIdol.ObserveAdd().Subscribe(item=>
+            {
+                if (item.Value.Count != 0) _view.GotScore(item.Value);
+            });
         }
     }
 
