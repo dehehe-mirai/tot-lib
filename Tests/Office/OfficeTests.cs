@@ -75,6 +75,11 @@ public class OfficeTests
         
         Assert.That(office.IdolDeck.Intersect(firstThreeIdols), Is.Empty);
         Assert.That(firstThreeIdols.Intersect(office.OpenedIdolTiles), Is.EquivalentTo(firstThreeIdols));
+
+        foreach (var idol in firstThreeIdols)
+        {
+            _officeView.Verify(x=>x.IdolOpenedFromDeck(idol));
+        }
     }  
     
     [Test]
@@ -101,5 +106,11 @@ public class OfficeTests
         
         Assert.Contains(removed, office.OpenedIdolTiles);
         Assert.That(office.RemovedIdolTiles, Is.Empty);
+    }
+
+    [Test]
+    public void Test_TakeTileFromOpenTiles()
+    {
+        
     }
 }

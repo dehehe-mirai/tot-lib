@@ -9,4 +9,5 @@ public interface IOfficeView
     void SongCardOpened(SongCard item);
     void IdolDeckAdded(IdolTile item);
     void SongDeckAdded(SongCard item);
+    void IdolOpenedFromDeck(IdolTile idol);
 }

@@ -14,6 +14,8 @@ public class Office
     public readonly ReactiveCollection<IdolTile> RemovedIdolTiles = new ReactiveCollection<IdolTile>();
     public ReactiveCollection<SongCard> RemovedSongCards = new ReactiveCollection<SongCard>();
 
+    public ReactiveCollection<IdolTile> OpenedIdolFromDeck = new ReactiveCollection<IdolTile>(); 
+
     public static void Shuffle<T>(List<T> list)
     {
         var rnd = new Random();
@@ -56,7 +58,9 @@ public class Office
         
         IdolDeck.ToObservable().Take(i - OpenedIdolTiles.Count).Subscribe(item =>
         {
+            OpenedIdolFromDeck.Add(item);
             OpenedIdolTiles.Add(item);
+            
         }, onCompleted: () =>
         {
             OpenedIdolTiles.ToObservable().Subscribe(x => IdolDeck.Remove(x));
