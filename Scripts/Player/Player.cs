@@ -9,4 +9,5 @@ public class Player
     public ReactiveProperty<int> Score = new ReactiveProperty<int>();
 
     public global::Scripts.Theater.Theater? Theater;
+    public Subject<bool> GameInitalized { get; set; }
 }
